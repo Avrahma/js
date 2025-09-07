@@ -274,17 +274,20 @@ function operator(pro) {
           usflag = usflag === "🇹🇼" ? "🇨🇳" : usflag;
         }
       }
-      keyover = keyover
-        .concat(firstName, usflag, nNames, findKeyValue, retainKey, ikey, ikeys)
-        .filter((k) => k !== "");
-      e.name = `【普通】${keyover.join(FGF)}`;
-    } else {
-      if (nm) {
-        e.name = FNAME + FGF + e.name;
-      } else {
-        e.name = null;
-      }
-    }
+keyover = keyover
+  .concat(firstName, usflag, nNames, findKeyValue, retainKey, ikey, ikeys)
+  .filter((k) => k !== "");
+
+// ✅ 保证前缀【普通】始终显示
+e.name = `【普通】${keyover.join(FGF)}`;
+} else {
+  if (nm) {
+    e.name = `【普通】${FNAME + FGF + e.name}`;
+  } else {
+    e.name = null;
+  }
+}
+
   });
   pro = pro.filter((e) => e.name !== null);
   jxh(pro);
