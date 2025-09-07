@@ -278,7 +278,6 @@ function operator(pro) {
         .concat(firstName, usflag, nNames, findKeyValue, retainKey, ikey, ikeys)
         .filter((k) => k !== "");
       e.name = `【普通】${keyover.join(FGF)}`;
-      e.name = keyover.join(FGF);
     } else {
       if (nm) {
         e.name = FNAME + FGF + e.name;
