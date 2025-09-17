@@ -1,0 +1,57 @@
+// -----------------------------
+// 保留原节点 + 多个 QQ续费线路始终第一位 Operator
+// -----------------------------
+// backend version >2.14.88
+
+function operator(proxies, targetPlatform, context) {
+  // 复制原节点列表
+  let originalProxies = [...proxies];
+
+  // 定义多个固定节点
+  const customNodes = [
+    {
+      "type": "hysteria2",
+      "name": "【不要选】续费购买QQ：921003995",
+      "server": "172.245.234.211",
+      "port": 55000,
+      "ports": "55000-56000",
+      "password": "f03ffc0d-417e-4f07-8d9a-ac1d0d8bfddb",
+      "sni": "www.bing.com",
+      "skip-cert-verify": true,
+      "tfo": false,
+      "tls": true,
+      "_subName": "0",
+    },
+    {
+      "type": "hysteria2",
+      "name": "【不要选】建议每次使用前都更新一下订阅",
+      "server": "172.245.234.212",
+      "port": 55001,
+      "ports": "55001-56001",
+      "password": "11111111-2222-3333-4444-555555555555",
+      "sni": "www.bing.com",
+      "skip-cert-verify": true,
+      "tfo": false,
+      "tls": true,
+      "_subName": "0",
+    },
+    {
+      "type": "hysteria2",
+      "name": "【不要选】文档教程：blog.335780.xyz",
+      "server": "172.245.234.213",
+      "port": 55002,
+      "ports": "55002-56002",
+      "password": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+      "sni": "www.bing.com",
+      "skip-cert-verify": true,
+      "tfo": false,
+      "tls": true,
+      "_subName": "0",
+    }
+  ];
+
+  // 将自定义节点放在最前面，原节点在后面
+  let newProxies = [...customNodes, ...originalProxies];
+
+  return newProxies;
+}
