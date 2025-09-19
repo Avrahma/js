@@ -1,21 +1,14 @@
-# 全局配置 
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7894
+### 全局配置
+mixed-port: 7897
 allow-lan: true
-bind-address: "*"
+mode: rule
+log-level: warning
 ipv6: false
+find-process-mode: strict
 unified-delay: true
 tcp-concurrent: true
-log-level: warning
-find-process-mode: 'off'
-# interface-name: en0
 global-client-fingerprint: chrome
-keep-alive-idle: 600
-keep-alive-interval: 15
-disable-keep-alive: false
+
 profile:
   store-selected: true
   store-fake-ip: true
