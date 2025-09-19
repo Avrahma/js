@@ -65,14 +65,14 @@ proxy-groups:
   - name: 自动选择
     type: url-test
     include-all: true
-    url: "https://cp.cloudflare.com/generate_204"
+    url: https://cp.cloudflare.com/generate_204
     interval: 180
     tolerance: 100
 
   - name: 故障转移
     type: fallback
     include-all: true
-    url: "https://cp.cloudflare.com/generate_204"
+    url: https://cp.cloudflare.com/generate_204
     interval: 60
 
 ### 完整 rule-provider 列表
@@ -93,7 +93,7 @@ rule-providers:
     path: ./rule_set/other_ruleset/cn.mrs
     interval: 43200
     format: text
-    proxy: 时光太浅1994
+    proxy: DIRECT
 
   private:
     type: http
