@@ -29,7 +29,8 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ['rule-set:fakeip-filter,trackerslist,private,cn']
   nameserver-policy:
-    {'rule-set:reject_non_ip,reject_domainset,reject_non_ip_drop,reject_non_ip_no_drop': [rcode://success]}
+     'rule-set:reject_non_ip,reject_domainset,reject_non_ip_drop,reject_non_ip_no_drop':
+    - rcode://success
 
 ### 域名嗅探
 sniffer:
@@ -59,7 +60,8 @@ proxy-groups:
 
   - name: ♻️自动选择
     type: url-test
-    include-all: true  
+    include-all: true
+    proxies: []
     url: "https://cp.cloudflare.com/generate_204"
     interval: 180
     tolerance: 100
@@ -67,6 +69,7 @@ proxy-groups:
   - name: 🔄故障转移
     type: fallback
     include-all: true
+    proxies: []
     url: "https://cp.cloudflare.com/generate_204"
     interval: 60
 
