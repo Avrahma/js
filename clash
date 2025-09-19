@@ -75,7 +75,7 @@ proxy-groups:
     url: "https://cp.cloudflare.com/generate_204"
     interval: 60
 
-### 完整 rule-provider 配置（全 text）
+### 完整 rule-provider 列表
 rule-providers:
   fakeip-filter:
     type: http
@@ -329,6 +329,15 @@ rule-providers:
     format: text
     proxy: 时光太浅1994
 
+  ai_non_ip:
+    type: http
+    behavior: classical
+    url: https://ruleset.skk.moe/Clash/non_ip/ai.txt
+    path: ./rule_set/sukkaw_ruleset/ai_non_ip.txt
+    interval: 43200
+    format: text
+    proxy: 时光太浅1994
+
   china_ip:
     type: http
     behavior: ipcidr
@@ -355,7 +364,7 @@ rules:
   - RULE-SET,apple_cn_non_ip,DIRECT
   - RULE-SET,apple_services,时光太浅1994
   - RULE-SET,microsoft_non_ip,时光太浅1994
-  - RULE-SET,ai_non_ip,时光太浅1994
+  - RULE-SET,ai_non_ip,时光太浅1994,no-resolve
   - RULE-SET,global_non_ip,时光太浅1994
   - RULE-SET,domestic_non_ip,DIRECT
   - RULE-SET,cn,DIRECT
