@@ -149,7 +149,6 @@ rules:
   - RULE-SET,reject_domainset,REJECT
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
   - RULE-SET,reject_non_ip_no_drop,REJECT
-  - RULE-SET,cdn_domainset,时光太浅1994
   - RULE-SET,cdn_non_ip,时光太浅1994
   - RULE-SET,stream_non_ip,时光太浅1994
   - RULE-SET,telegram_non_ip,时光太浅1994
