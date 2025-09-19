@@ -30,7 +30,7 @@ dns:
   fake-ip-filter: ['rule-set:fakeip-filter,trackerslist,private,cn']
   nameserver-policy:
     'rule-set:reject_non_ip,reject_domainset,reject_non_ip_drop,reject_non_ip_no_drop':
-     - rcode://success
+      - rcode://success
 
 ### 域名嗅探
 sniffer:
@@ -61,7 +61,6 @@ proxy-groups:
   - name: 自动选择
     type: url-test
     include-all: true
-    proxies: []
     url: "https://cp.cloudflare.com/generate_204"
     interval: 180
     tolerance: 100
@@ -69,7 +68,6 @@ proxy-groups:
   - name: 故障转移
     type: fallback
     include-all: true
-    proxies: []
     url: "https://cp.cloudflare.com/generate_204"
     interval: 60
 
@@ -77,7 +75,7 @@ proxy-groups:
 RuleSet_classical: &RuleSet_classical {type: http, behavior: classical, interval: 43200, format: text, proxy: 时光太浅1994}
 RuleSet_domain: &RuleSet_domain {type: http, behavior: domain, interval: 43200, format: text, proxy: 时光太浅1994}
 RuleSet_ipcidr: &RuleSet_ipcidr {type: http, behavior: ipcidr, interval: 43200, format: text, proxy: 时光太浅1994}
-RuleSet_filter: &RuleSet_filter {type: http, behavior: domain, interval: 43200, format: mrs, proxy: 时光太浅1994}
+RuleSet_filter: &RuleSet_filter {type: http, behavior: domain, interval: 43200, format: yaml, proxy: 时光太浅1994}
 
 rule-providers:
   fakeip-filter:
