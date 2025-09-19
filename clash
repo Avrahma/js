@@ -63,14 +63,22 @@ proxy-groups:
 
   - name: 自动选择
     type: url-test
-    url: https://cp.cloudflare.com/generate_204
+    url: "https://cp.cloudflare.com/generate_204"
     interval: 180
     tolerance: 100
+    proxies:
+      - 时光太浅1994
+      - DIRECT
 
   - name: 故障转移
     type: fallback
-    url: https://cp.cloudflare.com/generate_204
+    url: "https://cp.cloudflare.com/generate_204"
     interval: 60
+    tolerance: 100
+    proxies:
+      - 时光太浅1994
+      - 自动选择
+      - DIRECT
 
 ### rule-providers
 rule-providers:
