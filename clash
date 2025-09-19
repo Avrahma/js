@@ -59,8 +59,7 @@ proxy-groups:
 
   - name: ♻️自动选择
     type: url-test
-    include-all: true
-    proxies: []  
+    include-all: true  
     url: "https://cp.cloudflare.com/generate_204"
     interval: 180
     tolerance: 100
@@ -68,7 +67,6 @@ proxy-groups:
   - name: 🔄故障转移
     type: fallback
     include-all: true
-    proxies: []
     url: "https://cp.cloudflare.com/generate_204"
     interval: 60
 
