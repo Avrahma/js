@@ -28,10 +28,10 @@ dns:
     - https://dns.flymc.cc/dns-query
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - 'rule-set:fakeip-filter'
-    - 'rule-set:trackerslist'
-    - 'rule-set:private'
-    - 'rule-set:cn'
+    - rule-set:fakeip-filter
+    - rule-set:trackerslist
+    - rule-set:private
+    - rule-set:cn
   nameserver-policy:
     'rule-set:reject_non_ip,reject_domainset,reject_non_ip_drop,reject_non_ip_no_drop':
       - rcode://success
@@ -41,14 +41,14 @@ sniffer:
   enable: true
   sniff:
     HTTP:
-      ports: [80, 8080-8880]
+      ports: [80,8080-8880]
       override-destination: true
     TLS:
-      ports: [443, 8443]
+      ports: [443,8443]
     QUIC:
-      ports: [443, 8443]
+      ports: [443,8443]
   skip-domain:
-    - "Mijia Cloud"
+    - Mijia Cloud
     - dlg.io.mi.com
     - "+.push.apple.com"
 
@@ -56,7 +56,6 @@ sniffer:
 proxy-groups:
   - name: 时光太浅1994
     type: select
-    include-all: true
     proxies:
       - 自动选择
       - 故障转移
@@ -64,18 +63,16 @@ proxy-groups:
 
   - name: 自动选择
     type: url-test
-    include-all: true
     url: https://cp.cloudflare.com/generate_204
     interval: 180
     tolerance: 100
 
   - name: 故障转移
     type: fallback
-    include-all: true
     url: https://cp.cloudflare.com/generate_204
     interval: 60
 
-### 完整 rule-provider 列表
+### rule-providers
 rule-providers:
   fakeip-filter:
     type: http
@@ -364,7 +361,7 @@ rules:
   - RULE-SET,apple_cn_non_ip,DIRECT
   - RULE-SET,apple_services,时光太浅1994
   - RULE-SET,microsoft_non_ip,时光太浅1994
-  - RULE-SET,ai_non_ip,时光太浅1994,no-resolve
+  - RULE-SET,ai_non_ip,时光太浅1994
   - RULE-SET,global_non_ip,时光太浅1994
   - RULE-SET,domestic_non_ip,DIRECT
   - RULE-SET,cn,DIRECT
