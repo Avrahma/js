@@ -69,8 +69,8 @@ proxy-groups:
     include-all: true
     proxies: []  
     url: "https://cp.cloudflare.com/generate_204"
-    interval: 180
-    tolerance: 100
+    interval: 300
+    tolerance: 200
 
   - name: 🔄故障转移
     type: fallback
