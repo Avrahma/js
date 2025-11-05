@@ -154,7 +154,7 @@ function operator(pro) {
       Allmap[value] = outList[valueIndex];
     });
   });
-
+/*
   if (clear || nx || blnx || key) {
     pro = pro.filter((res) => {
       const resname = res.name;
@@ -166,7 +166,7 @@ function operator(pro) {
       return shouldKeep;
     });
   }
-
+*/
   const BLKEYS = BLKEY ? BLKEY.split("+") : "";
 
   pro.forEach((e) => {
