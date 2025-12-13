@@ -256,7 +256,7 @@ function operator(pro) {
     )
     
     let firstName = "",
-      nNames = "";
+      nNames = "高级";
 
     if (nf) {
       firstName = FNAME;
