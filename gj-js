@@ -44,7 +44,7 @@ const inArg = $arguments; // console.log(inArg)
 const nx = inArg.nx || false,
   bl = inArg.bl || false,
   nf = inArg.nf || false,
-  key = inArg.key|| false,
+  key = false, // 强制关闭 key 过滤，避免没有国旗节点被过滤
   blgd = inArg.blgd || false,
   blpx = inArg.blpx || false,
   blnx = inArg.blnx || false,
@@ -52,7 +52,7 @@ const nx = inArg.nx || false,
   debug = inArg.debug || false,
   clear = inArg.clear || false,
   addflag = inArg.flag || false,
-  nm = inArg.nm || false;
+  nm = true; // 保留未匹配节点
 
 const FGF = inArg.fgf == undefined ? " " : decodeURI(inArg.fgf),
   XHFGF = inArg.sn == undefined ? " " : decodeURI(inArg.sn),
