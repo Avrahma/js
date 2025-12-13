@@ -52,7 +52,7 @@ const nx = inArg.nx || false,
   debug = inArg.debug || false,
   clear = inArg.clear || false,
   addflag = inArg.flag || false,
-  nm = true; // 保留未匹配节点
+  nm = inArg.nm || false;
 
 const FGF = inArg.fgf == undefined ? " " : decodeURI(inArg.fgf),
   XHFGF = inArg.sn == undefined ? " " : decodeURI(inArg.sn),
