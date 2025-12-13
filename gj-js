@@ -253,7 +253,6 @@ function operator(pro) {
     // 匹配 Allkey 地区
     const findKey = AMK.find(([key]) =>
       e.name.includes(key)
-    ) || ["", ""];
     )
     
     let firstName = "",
@@ -264,7 +263,7 @@ function operator(pro) {
     } else {
       nNames = FNAME;
     }
-    if (findKey[1] !== "") {
+    if (findKey?.[1]) {
       const findKeyValue = findKey[1];
       let keyover = [],
         usflag = "";
@@ -278,13 +277,16 @@ function operator(pro) {
       keyover = keyover
         .concat(firstName, usflag, nNames, findKeyValue, retainKey, ikey, ikeys)
         .filter((k) => k !== "");
-      e.name = "【高级】" + FGF + keyover.join(FGF);
-} else {
-  // 未识别国家的节点也保留，只加前缀
-  e.name = "【高级】" + FGF + e.name;
-}
+      e.name = keyover.join(FGF);
+    } else {
+      if (nm) {
+        e.name = FNAME + FGF + e.name;
+      } else {
+        e.name = null;
+      }
     }
   });
+  pro = pro.filter((e) => e.name !== null);
   jxh(pro);
   numone && oneP(pro);
   blpx && (pro = fampx(pro));
