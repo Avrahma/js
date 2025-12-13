@@ -253,6 +253,7 @@ function operator(pro) {
     // 匹配 Allkey 地区
     const findKey = AMK.find(([key]) =>
       e.name.includes(key)
+    ) || ["", ""];
     )
     
     let firstName = "",
@@ -263,7 +264,7 @@ function operator(pro) {
     } else {
       nNames = FNAME;
     }
-    if (findKey?.[1]) {
+    if (findKey[1] !== "") {
       const findKeyValue = findKey[1];
       let keyover = [],
         usflag = "";
@@ -284,7 +285,6 @@ function operator(pro) {
 }
     }
   });
-  pro = pro.filter((e) => e.name !== null);
   jxh(pro);
   numone && oneP(pro);
   blpx && (pro = fampx(pro));
